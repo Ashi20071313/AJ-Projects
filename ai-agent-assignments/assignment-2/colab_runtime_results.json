@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Compare keyword and dense retrieval limitations.",
+    "mode": "live-gemini",
+    "status": "complete",
+    "answer": "Keyword and dense retrieval have distinct limitations based on their underlying mechanisms:\n\n*   **Keyword Retrieval:** This method relies on exact token overlap between the query and the document [keyword_retrieval]. Its primary limitation is that it may fail to retrieve relevant documents if they use different vocabulary or synonyms for the same concept [keyword_retrieval].\n*   **Dense Retrieval:** This method uses embedding vectors to capture semantic similarity, allowing it to retrieve passages even when the vocabulary differs from the query [dense_retrieval]. However, its retrieval quality is dependent on the specific embedding model used and the collection on which it is evaluated [dense_retrieval].\n\nWhile hybrid approaches exist to combine these methods, they introduce additional computational costs and configuration complexity [hybrid_retrieval]. The provided documents do not contain a controlled comparison or benchmark scores to evaluate the relative performance of these methods [dense_retrieval, keyword_retrieval, hybrid_retrieval].",
+    "sources": [
+      {
+        "source": "dense_retrieval",
+        "score": 0.6,
+        "text": "Fictional study note: Dense retrieval prototype. The system represents research questions and paper passages as embedding vectors. Semantic similarity can retrieve passages that use different vocabulary. Retrieval quality depends on the embedding model and the collection used for evaluation. This teaching example provides no shared benchmark against keyword retrieval and no numerical performance results."
+      },
+      {
+        "source": "hybrid_retrieval",
+        "score": 0.6,
+        "text": "Fictional study note: Hybrid retrieval proposal. The system combines keyword retrieval candidates with dense retrieval candidates. A reranker orders the combined candidates before the assistant generates a response. Combining methods introduces extra computation and configuration choices. The proposal does not include an ablation experiment that isolates the contribution of each component."
+      },
+      {
+        "source": "keyword_retrieval",
+        "score": 0.4,
+        "text": "Fictional study note: Keyword retrieval baseline. The system ranks paper notes using overlap between query tokens and document tokens. Exact vocabulary matches are easy to inspect and require no embedding service. Synonyms may be missed when the query and document use different words. This teaching example reports no benchmark scores or participant count."
+      }
+    ],
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "query": "limitations of keyword retrieval vs dense retrieval",
+        "sources": [
+          "dense_retrieval",
+          "hybrid_retrieval",
+          "keyword_retrieval"
+        ],
+        "error": null
+      }
+    ]
+  },
+  {
+    "question": "What does hybrid retrieval combine?",
+    "mode": "live-gemini",
+    "status": "complete",
+    "answer": "Hybrid retrieval combines keyword retrieval candidates with dense retrieval candidates [hybrid_retrieval].",
+    "sources": [
+      {
+        "source": "hybrid_retrieval",
+        "score": 1,
+        "text": "Fictional study note: Hybrid retrieval proposal. The system combines keyword retrieval candidates with dense retrieval candidates. A reranker orders the combined candidates before the assistant generates a response. Combining methods introduces extra computation and configuration choices. The proposal does not include an ablation experiment that isolates the contribution of each component."
+      },
+      {
+        "source": "dense_retrieval",
+        "score": 0.5,
+        "text": "Fictional study note: Dense retrieval prototype. The system represents research questions and paper passages as embedding vectors. Semantic similarity can retrieve passages that use different vocabulary. Retrieval quality depends on the embedding model and the collection used for evaluation. This teaching example provides no shared benchmark against keyword retrieval and no numerical performance results."
+      },
+      {
+        "source": "evaluation_protocol",
+        "score": 0.5,
+        "text": "Fictional study note: Evaluation protocol. Retrieval quality can be evaluated with a set of research questions and human-labeled relevant passages. A controlled comparison should use the same collection and question set for all retrieval methods. Answer evaluation should separately inspect factual support, citation accuracy and abstention when evidence is missing. This proposed protocol contains no executed evaluation results or participant recruitment details."
+      }
+    ],
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "query": "what is hybrid retrieval",
+        "sources": [
+          "hybrid_retrieval",
+          "dense_retrieval",
+          "evaluation_protocol"
+        ],
+        "error": null
+      }
+    ]
+  },
+  {
+    "question": "How should citation accuracy and missing evidence be evaluated?",
+    "mode": "live-gemini",
+    "status": "complete",
+    "answer": "To evaluate citation accuracy and missing evidence, the following protocol is recommended:\n\n*   **Citation Accuracy:** The presence of a citation does not inherently prove that the cited passage supports the claim [grounded_generation]. Evaluation must involve a separate inspection of each factual claim to verify that it is explicitly supported by the cited document identifier [grounded_generation, evaluation_protocol].\n*   **Missing Evidence:** When evidence is missing, it should be explicitly reported rather than replaced with invented results [grounded_generation, evaluation_protocol].\n*   **Evaluation Protocol:** Retrieval quality can be assessed using a set of research questions and human-labeled relevant passages [evaluation_protocol]. For a controlled comparison, the same collection and question set must be used across all methods [evaluation_protocol].",
+    "sources": [
+      {
+        "source": "evaluation_protocol",
+        "score": 0.7142857142857143,
+        "text": "Fictional study note: Evaluation protocol. Retrieval quality can be evaluated with a set of research questions and human-labeled relevant passages. A controlled comparison should use the same collection and question set for all retrieval methods. Answer evaluation should separately inspect factual support, citation accuracy and abstention when evidence is missing. This proposed protocol contains no executed evaluation results or participant recruitment details."
+      },
+      {
+        "source": "grounded_generation",
+        "score": 0.5714285714285714,
+        "text": "Fictional study note: Evidence-grounded generation. A research assistant receives retrieved passages before drafting an answer. Each factual claim should cite the identifier of a supporting document. Missing evidence should be reported rather than replaced with an invented result. The presence of a citation alone does not prove that the cited passage supports the claim."
+      },
+      {
+        "source": "dense_retrieval",
+        "score": 0.14285714285714285,
+        "text": "Fictional study note: Dense retrieval prototype. The system represents research questions and paper passages as embedding vectors. Semantic similarity can retrieve passages that use different vocabulary. Retrieval quality depends on the embedding model and the collection used for evaluation. This teaching example provides no shared benchmark against keyword retrieval and no numerical performance results."
+      }
+    ],
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "query": "how to evaluate citation accuracy and missing evidence in research papers",
+        "sources": [
+          "evaluation_protocol",
+          "grounded_generation",
+          "dense_retrieval"
+        ],
+        "error": null
+      }
+    ]
+  },
+  {
+    "question": "How many ghosts eat carrots everyday?",
+    "mode": "live-gemini",
+    "status": "complete",
+    "answer": "The available documents do not contain information regarding ghosts eating carrots.",
+    "sources": [],
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "query": "ghosts eat carrots",
+        "sources": [],
+        "error": null
+      }
+    ]
+  },
+  {
+    "question": "What is the most popular food item in Canada?",
+    "mode": "live-gemini",
+    "status": "complete",
+    "answer": "The provided documents do not contain information regarding the most popular food item in Canada.",
+    "sources": [],
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "query": "most popular food item in Canada",
+        "sources": [],
+        "error": null
+      }
+    ]
+  }
+]
